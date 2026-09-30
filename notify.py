@@ -93,7 +93,10 @@ def send_weekly(report, path: Path):
     else:
         cr_uri = path.as_uri()
         etat_uri = cr_uri + "#etat"
-    subject = f"{report['doc_title']} — {len(c['majeures'])} majeure(s), {len(c['entrants'])} entrant(s)"
+    gen = datetime.date.fromisoformat(report.get("generated"))
+    y = gen.strftime("%d/%m/%Y")
+    x = (gen - datetime.timedelta(days=7)).strftime("%d/%m/%Y")
+    subject = f"IMPORTANT : news LLM de la semaine du lundi {x} au lundi {y}"
     msg = EmailMessage()
     msg["From"] = os.environ["MAIL_FROM"]
     msg["To"] = os.environ["MAIL_TO"]
