@@ -1,0 +1,14 @@
+{
+  "week_id": "2026-W40",
+  "week_label": "Semaine 40 · 28 Sep–4 Oct 2026",
+  "doc_title": "LLM analyse du 30/09/2026",
+  "generated": "2026-09-30",
+  "roster": "OpenAI / GPT, Anthropic / Claude, Google / Gemini, Meta / Llama, Mistral AI, xAI / Grok, Microsoft Copilot, DeepSeek, Qwen / Alibaba, Cohere, LightOn",
+  "verdict": "Semaine calme : aucun mouvement majeur, les choix de LLM restent inchangés.",
+  "active_bricks": [],
+  "cr": {
+    "majeures": [],
+    "radar": [],
+    "entrants": []
+  }
+}
