@@ -1,0 +1,13 @@
+# Secrets — NE JAMAIS committer
+.env
+
+# Python
+venv/
+__pycache__/
+*.pyc
+
+# Logs locaux
+logs/*.log
+
+# Aperçus locaux
+output/_prev_*.png

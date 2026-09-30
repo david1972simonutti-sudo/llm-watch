@@ -1,0 +1,254 @@
+<!doctype html><html lang=fr><head><meta charset=utf-8><meta name=viewport content='width=device-width,initial-scale=1'><title>LLM analyse du 30/09/2026</title><style>
+:root{
+  --bg:#F6F7F9; --surface:#FFFFFF; --ink:#151A22; --ink-2:#4C5666;
+  --muted:#8B94A3; --line:#E4E8EE; --line-strong:#CDD4DE;
+  --majeur:#B45309; --radar:#1F5FBF; --entrant:#6D28D9; --entrant-bg:#F3EEFD; --entrant-line:#D6C2F5;
+  --down:#1A7F4B; --up:#B4232A; --stable:#8B94A3;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; --radius:12px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.55;
+  -webkit-font-smoothing:antialiased;font-variant-numeric:tabular-nums}
+.page{max-width:1000px;margin:0 auto;padding:36px 24px 72px}
+a{color:var(--radar);text-decoration:none} a:hover{text-decoration:underline}
+.masthead{border-bottom:2px solid var(--ink);padding-bottom:14px;
+  display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap}
+.brand{font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
+.brand span{color:var(--majeur)}
+.issue{font-size:12px;color:var(--muted);letter-spacing:.04em}
+.eyebrow{font-size:11px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--muted)}
+.title{font-size:30px;font-weight:700;letter-spacing:-.02em;margin:20px 0 4px}
+.tabs{display:flex;gap:4px;margin-top:16px;border-bottom:1px solid var(--line-strong)}
+.tab{appearance:none;background:none;border:none;cursor:pointer;font-family:inherit;
+  font-size:13px;font-weight:600;color:var(--muted);padding:10px 16px;border-radius:8px 8px 0 0;
+  border-bottom:2px solid transparent;margin-bottom:-1px}
+.tab:hover{color:var(--ink-2)}
+.tab.active{color:var(--ink);border-bottom-color:var(--majeur);background:var(--surface)}
+.view{display:none} .view.active{display:block}
+.hero{padding:16px 0 26px;border-bottom:1px solid var(--line)}
+.verdict{font-size:19px;line-height:1.4;font-weight:600;letter-spacing:-.01em;max-width:62ch;margin:8px 0 18px}
+.stats{display:flex;gap:26px;flex-wrap:wrap}
+.stat{display:flex;flex-direction:column;gap:1px}
+.stat .n{font-size:21px;font-weight:700;letter-spacing:-.02em}
+.stat .l{font-size:10.5px;color:var(--muted);letter-spacing:.05em;text-transform:uppercase}
+.stat.hi .n{color:var(--majeur)}
+.part{margin-top:36px}
+.part-head{display:flex;align-items:baseline;gap:10px;border-bottom:2px solid var(--ink);padding-bottom:8px}
+.part-head h2{font-size:17px;font-weight:700;letter-spacing:-.01em}
+.part-head .sub{font-size:12px;color:var(--muted);margin-left:auto}
+.subhead{font-size:12px;font-weight:700;letter-spacing:.02em;color:var(--ink-2);
+  text-transform:uppercase;margin:20px 0 8px;display:flex;align-items:center;gap:8px}
+.subhead .c{font-weight:500;color:var(--muted);text-transform:none;letter-spacing:0}
+table{width:100%;border-collapse:collapse;font-size:13px;background:var(--surface);
+  border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+thead th{padding:9px 12px;text-align:left;font-size:10px;text-transform:uppercase;letter-spacing:.06em;
+  color:var(--muted);font-weight:700;background:var(--bg);border-bottom:1px solid var(--line-strong)}
+tbody td{padding:11px 12px;vertical-align:top;color:var(--ink-2);line-height:1.5;border-bottom:1px solid var(--line)}
+tbody tr:last-child td{border-bottom:none}
+.rel{display:flex;flex-direction:column;gap:2px}
+.rel-h{display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+.dot{width:9px;height:9px;border-radius:50%;flex:none}
+.dot.h{background:var(--majeur)} .dot.m{background:var(--radar)} .dot.l{background:var(--stable)}
+.rel-t{font-weight:650;color:var(--ink)} .rel-p{font-size:11.5px;color:var(--muted)} .rel-d{font-size:11px;color:var(--muted)}
+.bench{font-size:11px;font-style:italic;color:var(--muted);margin-top:5px;border-top:1px dashed var(--line);padding-top:5px}
+.cost-down{color:var(--down);font-weight:600}.cost-up{color:var(--up);font-weight:600}.cost-stable{color:var(--stable);font-weight:600}
+.src{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.04em}
+.col-rel{width:30%}.col-cost{width:14%}.col-src{width:9%}
+.calm{background:var(--surface);border:1px dashed var(--line-strong);border-radius:var(--radius);padding:16px;font-size:13px;color:var(--ink-2)}
+.entrant{background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--entrant);
+  border-radius:var(--radius);padding:16px 18px;margin-bottom:12px}
+.entrant-top{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin-bottom:8px}
+.tag{font-size:10px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;padding:2px 7px;border-radius:5px;
+  background:var(--entrant-bg);color:var(--entrant);border:1px solid var(--entrant-line)}
+.entrant-name{font-size:16px;font-weight:650} .entrant-org{font-size:12px;color:var(--muted)}
+.crit{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}
+.crit span{font-size:10.5px;background:var(--bg);border:1px solid var(--line-strong);border-radius:5px;padding:2px 8px;color:var(--ink-2)}
+.dims{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:8px}
+.dim{background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:9px 11px}
+.dim .dl{font-size:9.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:3px}
+.dim .dt{font-size:12.5px;color:var(--ink-2)}
+.pn{font-weight:650;color:var(--ink)}.pm{font-size:11.5px;color:var(--muted);margin-top:2px}
+.chips{display:flex;gap:4px;flex-wrap:wrap}
+.chip{font-size:10px;padding:2px 6px;border-radius:4px;background:var(--bg);border:1px solid var(--line-strong);color:var(--ink-2)}
+.lead{font-size:15px;color:var(--ink-2);max-width:64ch;margin:14px 0 20px;line-height:1.5}
+.foot{margin-top:40px;padding-top:16px;border-top:1px solid var(--line);font-size:11px;color:var(--muted);line-height:1.7}
+/* badge brique */
+.brk{display:inline-block;font-size:9.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;
+  padding:1px 6px;border-radius:4px;background:var(--radar-bg,#EEF3FC);color:var(--radar);border:1px solid #cfe0f7;margin-top:3px}
+.active-bar{display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin:14px 0 4px}
+.active-bar .lab{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;font-weight:700}
+.active-chip{font-size:11px;font-weight:600;padding:3px 9px;border-radius:20px;background:var(--majeur-bg,#FDF6EC);
+  color:var(--majeur);border:1px solid #ecd3a8}
+/* schéma de flux UX */
+.flow-wrap{margin-top:8px}
+.flow-band-label{font-size:10.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);margin:22px 0 8px}
+.flow-amont{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:6px}
+.flow-row{display:flex;align-items:stretch;gap:6px;flex-wrap:wrap}
+.node{background:var(--surface);border:1px solid var(--line-strong);border-radius:10px;padding:10px 12px;
+  min-width:120px;flex:1 1 120px;position:relative}
+.node.amont{border-left:3px solid var(--entrant)}
+.node.flux{border-left:3px solid var(--radar)}
+.node.endpoint{background:var(--ink);color:#fff;border:none;flex:0 0 auto;min-width:78px;display:flex;
+  align-items:center;justify-content:center;font-weight:700;font-size:13px}
+.node.model{border-left:3px solid var(--majeur);background:var(--majeur-bg,#FDF6EC)}
+.node.on{box-shadow:0 0 0 2px var(--majeur);border-left-color:var(--majeur)}
+.node .nk{font-size:9px;font-weight:700;color:var(--muted);letter-spacing:.06em}
+.node .nt{font-size:12.5px;font-weight:650;color:var(--ink);margin:2px 0 3px;line-height:1.25}
+.node .nr{font-size:10.5px;color:var(--ink-2);line-height:1.35}
+.node .non{position:absolute;top:-8px;right:-6px;font-size:8.5px;font-weight:700;background:var(--majeur);color:#fff;
+  padding:1px 6px;border-radius:20px;letter-spacing:.03em}
+.arrow{align-self:center;color:var(--muted);font-size:16px;flex:0 0 auto}
+.transverse-band{margin-top:10px;background:var(--bg);border:1px dashed var(--line-strong);border-radius:10px;padding:12px}
+.control-band{position:relative;margin-top:6px;background:var(--entrant-bg,#F3EEFD);border:1px solid var(--entrant-line,#D6C2F5);
+  border-left:3px solid var(--entrant);border-radius:10px;padding:12px 14px}
+.control-band.on{box-shadow:0 0 0 2px var(--entrant)}
+.control-band .nk{font-size:9px;font-weight:700;color:var(--entrant);letter-spacing:.06em}
+.control-band .nt{font-size:13.5px;font-weight:650;color:var(--ink);margin:2px 0 3px}
+.control-band .nr{font-size:11.5px;color:var(--ink-2);line-height:1.4}
+.control-band .non{position:absolute;top:-8px;right:-6px;font-size:8.5px;font-weight:700;background:var(--entrant);color:#fff;padding:1px 6px;border-radius:20px}
+.transverse-band .trow{display:flex;gap:10px;flex-wrap:wrap}
+.tcell{flex:1 1 160px;font-size:11.5px;color:var(--ink-2)}
+.tcell b{color:var(--ink);font-size:12px}
+/* trajectoires */
+.traj{margin-top:10px}
+.traj-item{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin-bottom:8px}
+.traj-h{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+.traj-h .tl{font-weight:650;font-size:13.5px}
+.traj-h .grp{font-size:9.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);border:1px solid var(--line-strong);border-radius:4px;padding:1px 6px}
+.traj-xy{font-size:12.5px;color:var(--ink-2);margin:6px 0}
+.traj-xy .x{color:var(--muted)} .traj-xy .to{color:var(--majeur);font-weight:600}
+.traj-sub{display:flex;gap:5px;flex-wrap:wrap;margin-top:4px}
+.traj-anchor{font-size:10.5px;color:var(--muted);margin-top:6px;font-style:italic}
+@media(max-width:720px){.dims{grid-template-columns:1fr}.page{padding:26px 16px 56px}
+  .title{font-size:24px}table{font-size:12px}.table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+  .flow-row{flex-direction:column}.arrow{transform:rotate(90deg)}.node.endpoint{min-width:0}}
+</style></head><body><div class=page>
+    <div class=masthead><div class=brand>LLM <span>Market Watch</span></div><div class=issue>Semaine 40 · 28 Sep–4 Oct 2026</div></div>
+    <nav class=tabs>
+      <button class='tab active' data-view=cr>Compte-rendu</button>
+      <button class=tab data-view=etat>État des lieux</button>
+      <button class=tab data-view=schema>Schéma des briques</button></nav>
+    
+    <section id=cr class='view active'>
+      <div class=eyebrow>Compte-rendu hebdomadaire</div>
+      <div class=title>LLM analyse du 30/09/2026</div>
+      <div class=hero><div class=verdict>Google et DeepSeek rebattent les cartes : niveau top sur le code à tarif agressif, pendant que l&#x27;open-weights chinois (Qwen, DeepSeek) s&#x27;installe durablement dans le peloton de tête.</div>
+        <div class=stats>
+          <div class='stat hi'><div class=n>2</div><div class=l>Nouveauté(s) majeure(s)</div></div>
+          <div class=stat><div class=n>4</div><div class=l>Mouvements au radar</div></div>
+          <div class=stat><div class=n>1</div><div class=l>Nouveaux entrants</div></div></div></div>
+      <div class=part>
+        <div class=part-head><h2>Partie 1 — Sorties importantes</h2><span class=sub>7 derniers jours</span></div>
+        <div class=active-bar><span class=lab>Briques qui bougent cette semaine</span><span class=active-chip>Outils &amp; orchestration agentique</span><span class=active-chip>Architecture &amp; pré-entraînement</span><span class=active-chip>Augmentation &amp; RAG</span><span class=active-chip>Raisonnement &amp; test-time compute</span></div>
+        <div class=subhead>🔴 Nouveautés majeures <span class=c>· impact fort</span></div><div class=table-wrap><table><thead><tr><th class=col-rel>Provider · Nouveauté</th><th>Problème résolu</th><th>Usage métier débloqué</th><th class=col-cost>Coût</th><th class=col-src>Source</th></tr></thead><tbody><tr>
+      <td class=col-rel><div class=rel><div class=rel-h><span class='dot h'></span>
+        <span class=rel-t>Gemini 3 Ultra</span></div>
+        <div class=rel-p>Google / Gemini</div><div class=rel-d>2026-09-28</div>
+        <span class=brk>Architecture &amp; pré-entraînement</span></div></td>
+      <td>Rapproche Google du meilleur niveau sur le code et le raisonnement long, là où 2.5 décrochait.<div class=bench>Benchmark — SWE-bench Verified ~74% annoncé par Google, non reproduit indépendamment à ce stade.</div></td>
+      <td>Agents de dev multi-fichiers et analyse de documents massifs à coût contenu.</td>
+      <td class=col-cost><span class=cost-down>↘ ~-40% vs 2.5 Pro</span></td>
+      <td class=col-src><a class=src href='https://blog.google/technology/ai/gemini-3-ultra' target=_blank rel=noopener>officiel ↗</a></td></tr><tr>
+      <td class=col-rel><div class=rel><div class=rel-h><span class='dot h'></span>
+        <span class=rel-t>DeepSeek-V4</span></div>
+        <div class=rel-p>DeepSeek</div><div class=rel-d>2026-09-26</div>
+        <span class=brk>Architecture &amp; pré-entraînement</span></div></td>
+      <td>Perf proche du top en code à une fraction du coût, en poids ouverts.<div class=bench>Benchmark — SWE-bench Verified ~71% auto-rapporté ; à confirmer sur leaderboard indépendant.</div></td>
+      <td>Copilotes de code internes très bas coût, déployables sans API US.</td>
+      <td class=col-cost><span class=cost-down>≈1/10 du prix des flagships fermés</span></td>
+      <td class=col-src><a class=src href='https://huggingface.co/deepseek-ai/DeepSeek-V4' target=_blank rel=noopener>officiel ↗</a></td></tr></tbody></table></div>
+        <div class=subhead>🟡 Radar de la semaine <span class=c>· top 5</span></div><div class=table-wrap><table><thead><tr><th class=col-rel>Provider · Nouveauté</th><th>Problème résolu</th><th>Usage métier débloqué</th><th class=col-cost>Coût</th><th class=col-src>Source</th></tr></thead><tbody><tr>
+      <td class=col-rel><div class=rel><div class=rel-h><span class='dot m'></span>
+        <span class=rel-t>Qwen 3 Max</span></div>
+        <div class=rel-p>Qwen / Alibaba</div><div class=rel-d>2026-09-27</div>
+        <span class=brk>Raisonnement &amp; test-time compute</span></div></td>
+      <td>Améliore raisonnement et multilingue, comble l&#x27;écart avec les modèles fermés.</td>
+      <td>Assistants multilingues (zh/en) déployables on-premise.</td>
+      <td class=col-cost><span class=cost-stable>poids ouverts</span></td>
+      <td class=col-src><a class=src href='https://qwenlm.github.io' target=_blank rel=noopener>officiel ↗</a></td></tr><tr>
+      <td class=col-rel><div class=rel><div class=rel-h><span class='dot m'></span>
+        <span class=rel-t>Mistral Large 3.1</span></div>
+        <div class=rel-p>Mistral AI</div><div class=rel-d>2026-09-27</div>
+        <span class=brk>Outils &amp; orchestration agentique</span></div></td>
+      <td>Améliore le suivi d&#x27;instructions et l&#x27;appel d&#x27;outils, faiblesses de la 3.0.</td>
+      <td>Assistants métier open-weights on-premise, sans cloud US.</td>
+      <td class=col-cost><span class=cost-stable>poids ouverts, stable</span></td>
+      <td class=col-src><a class=src href='https://mistral.ai/news/large-3-1' target=_blank rel=noopener>officiel ↗</a></td></tr><tr>
+      <td class=col-rel><div class=rel><div class=rel-h><span class='dot m'></span>
+        <span class=rel-t>Command A (mise à jour août)</span></div>
+        <div class=rel-p>Cohere</div><div class=rel-d>2026-09-25</div>
+        <span class=brk>Augmentation &amp; RAG</span></div></td>
+      <td>Meilleure fidélité RAG et réduction des hallucinations sur documents d&#x27;entreprise.</td>
+      <td>Recherche documentaire d&#x27;entreprise avec citations fiables.</td>
+      <td class=col-cost><span class=cost-stable>tarif API inchangé</span></td>
+      <td class=col-src><a class=src href='https://cohere.com/blog' target=_blank rel=noopener>officiel ↗</a></td></tr><tr>
+      <td class=col-rel><div class=rel><div class=rel-h><span class='dot l'></span>
+        <span class=rel-t>Llama 4.1</span></div>
+        <div class=rel-p>Meta / Llama</div><div class=rel-d>2026-09-24</div>
+        <span class=brk>Architecture &amp; pré-entraînement</span></div></td>
+      <td>Corrige des régressions de contexte long de la 4.0.</td>
+      <td>Fine-tuning souverain pour secteurs régulés.</td>
+      <td class=col-cost><span class=cost-stable>gratuit (poids ouverts)</span></td>
+      <td class=col-src><a class=src href='https://ai.meta.com/blog/llama-4-1' target=_blank rel=noopener>officiel ↗</a></td></tr></tbody></table></div></div>
+      <div class=part>
+        <div class=part-head><h2>Partie 2 — Nouveaux entrants &amp; licornes</h2><span class=sub>open-source ou autres · 14 jours</span></div>
+        <div class=entrant>
+      <div class=entrant-top><span class=tag>Nouvel entrant</span>
+        <span class=entrant-name>Kimi K2</span>
+        <span class=entrant-org>· Moonshot AI · Chine</span></div>
+      <div class=crit><span>📄 arXiv:2508.xxxxx</span><span>💰 levée &gt;1Md$ (2025)</span><span>📊 MMLU-Pro : ~86%</span><span>✅ dispo</span></div>
+      <div class=dims>
+        <div class=dim><div class=dl>Ce qu'il apporte</div><div class=dt>Contexte ultra-long (&gt;1M tokens) fiable, à coût maîtrisé.</div></div>
+        <div class=dim><div class=dl>Usage débloqué</div><div class=dt>Analyse de corpus juridiques/financiers entiers en une passe.</div></div>
+        <div class=dim><div class=dl>Positionnement</div><div class=dt>Spécialiste du contexte long face à Gemini ; moins généraliste que GPT/Claude.</div></div>
+        <div class=dim><div class=dl>Tendance coût</div><div class=dt>API à bas coût ; poids partiels ouverts</div></div></div>
+      <div class=bench>Benchmark — Scores de contexte long auto-rapportés ; méthodologie à vérifier.</div><div style='margin-top:8px'><a class=src href='https://huggingface.co/moonshotai/Kimi-K2' target=_blank rel=noopener>Source ↗</a></div></div></div>
+      <div class=foot>Généré le 2026-09-30 · Providers suivis : OpenAI / GPT, Anthropic / Claude, Google / Gemini, Meta / Llama, Mistral AI, xAI / Grok, Microsoft Copilot, DeepSeek, Qwen / Alibaba, Cohere, LightOn.<br>
+        Dates = dates de publication vérifiées ; un item sans date vérifiable n'est pas remonté comme nouveau.
+        Claims marketing distingués de la critique des benchmarks. Sans répétition d'une semaine sur l'autre.</div>
+    </section>
+    <section id=etat class=view>
+      <div class=eyebrow>État des lieux · référence courante</div>
+      <div class=title style='font-size:24px'>Photographie du marché à date</div>
+      <div class=lead>Modèle phare, spécialisation et tendance coût par provider. Cette vue se répète volontairement :
+        c'est la référence. Le compte-rendu, lui, ne montre que ce qui a changé.</div>
+      <div class=table-wrap><table><thead><tr><th style='width:17%'>Provider</th><th style='width:22%'>Spécialisation</th><th style='width:14%'>Coût</th><th>Signal — état courant</th></tr></thead><tbody><tr><td><div class=pn>OpenAI / GPT</div><div class=pm>GPT-5.6 Sol/Terra/Luna</div></td><td><div class=chips><span class=chip>code</span><span class=chip>agent</span><span class=chip>reasoning</span></div><div class=pm style='margin-top:5px'>raisonnement, science, cyber</div></td><td><span class=cost-down>↘ Luna -30%</span></td><td>3 variantes : compromis coût/perf par contexte.</td></tr><tr><td><div class=pn>Anthropic / Claude</div><div class=pm>Claude Opus 5 / Fable 5</div></td><td><div class=chips><span class=chip>code</span><span class=chip>agent</span><span class=chip>enterprise</span></div><div class=pm style='margin-top:5px'>code long-horizon, agents</div></td><td><span class=cost-down>↘ Opus 5 -50%</span></td><td>Opus 5 = intelligence proche de Fable 5 à moitié prix.</td></tr><tr><td><div class=pn>Google / Gemini</div><div class=pm>Gemini 3 Ultra</div></td><td><div class=chips><span class=chip>code</span><span class=chip>multimodal</span><span class=chip>agent</span></div><div class=pm style='margin-top:5px'>multimodal, code, contexte long</div></td><td><span class=cost-down>↘ -40% vs 2.5 Pro</span></td><td>Gemini 3 Ultra : niveau top code à tarif agressif.</td></tr><tr><td><div class=pn>Meta / Llama</div><div class=pm>Llama 4.1</div></td><td><div class=chips><span class=chip>open</span><span class=chip>multimodal</span></div><div class=pm style='margin-top:5px'>open-weights, multimodal</div></td><td><span class=cost-stable>poids ouverts</span></td><td>Resserre l&#x27;écart avec les modèles fermés.</td></tr><tr><td><div class=pn>Mistral AI</div><div class=pm>Mistral Large 3.1</div></td><td><div class=chips><span class=chip>open</span><span class=chip>code</span><span class=chip>enterprise</span></div><div class=pm style='margin-top:5px'>open-weights, souverain EU</div></td><td><span class=cost-stable>poids ouverts</span></td><td>Alternative souveraine open-weights.</td></tr><tr><td><div class=pn>xAI / Grok</div><div class=pm>Grok 4.5</div></td><td><div class=chips><span class=chip>code</span><span class=chip>agent</span></div><div class=pm style='margin-top:5px'>temps réel X/SpaceX</div></td><td><span class=cost-stable>$2 / $6 par M tokens</span></td><td>Temps réel X ; benchmarks indépendants absents.</td></tr><tr><td><div class=pn>Microsoft Copilot</div><div class=pm>Copilot / Azure OpenAI</div></td><td><div class=chips><span class=chip>enterprise</span><span class=chip>agent</span></div><div class=pm style='margin-top:5px'>M365, enterprise</div></td><td><span class=cost-up>↑ Cowork pay-per-use</span></td><td>Copilot Cowork facturé à l&#x27;usage.</td></tr><tr><td><div class=pn>DeepSeek</div><div class=pm>DeepSeek-V4</div></td><td><div class=chips><span class=chip>open</span><span class=chip>code</span><span class=chip>reasoning</span></div><div class=pm style='margin-top:5px'>code, raisonnement, très bas coût</div></td><td><span class=cost-down>≈1/10 des flagships fermés</span></td><td>Rapport perf/prix agressif en poids ouverts.</td></tr><tr><td><div class=pn>Qwen / Alibaba</div><div class=pm>Qwen 3 Max</div></td><td><div class=chips><span class=chip>open</span><span class=chip>multimodal</span><span class=chip>reasoning</span></div><div class=pm style='margin-top:5px'>multilingue, open-weights</div></td><td><span class=cost-stable>poids ouverts</span></td><td>Famille très large, forte adoption en Asie.</td></tr><tr><td><div class=pn>Cohere</div><div class=pm>Command A / R+</div></td><td><div class=chips><span class=chip>enterprise</span><span class=chip>rag</span></div><div class=pm style='margin-top:5px'>RAG, enterprise, souveraineté</div></td><td><span class=cost-stable>API entreprise</span></td><td>Positionnement RAG/entreprise, déploiement privé.</td></tr><tr><td><div class=pn>LightOn</div><div class=pm>Paradigm / Agent-ModernColBERT</div></td><td><div class=chips><span class=chip>enterprise</span><span class=chip>open</span></div><div class=pm style='margin-top:5px'>RAG souverain européen</div></td><td><span class=cost-stable>SaaS</span></td><td>Pivot enterprise confirmé ; la tech linéaire n&#x27;est pas le moat.</td></tr><tr><td><div class=pn>Kimi K2</div><div class=pm>Moonshot AI</div></td><td><div class=chips><span class=chip>entrant</span></div><div class=pm style='margin-top:5px'>Spécialiste du contexte long face à Gemini ; moins généraliste que GPT/Claude.</div></td><td><span class=cost-stable>API à bas coût ; poids partiels ouverts</span></td><td>Contexte ultra-long (&gt;1M tokens) fiable, à coût maîtrisé.</td></tr></tbody></table></div>
+      <div class=foot>Généré le 2026-09-30.</div>
+    </section>
+    <section id=schema class=view>
+      <div class=eyebrow>Référentiel · briques fonctionnelles</div>
+      <div class=title style='font-size:24px'>Les briques, du prompt au résultat</div>
+      <div class=lead>Le parcours d'une requête, de gauche à droite. Deux briques « amont » fabriquent le modèle ;
+        le reste s'enchaîne à l'exécution. Le contrôle agentique enveloppe tout le flux. Les briques encadrées ont bougé cette semaine.</div>
+      <div class=flow-wrap>
+        <div class=flow-band-label>Amont — fabrication du modèle</div>
+        <div class=flow-amont><div class='node amont on'><span class=non>ACTIF</span><div class=nk>ARCHITECTURE</div><div class=nt>Architecture &amp; pré-entraînement</div><div class=nr>Le modèle brut : structure interne et apprentissage initial.</div></div><div class='node amont'><div class=nk>POST-ENTRAÎNEMENT</div><div class=nt>Post-entraînement &amp; alignement</div><div class=nr>Rendre le modèle utile, contrôlable et sûr après pré-entraînement.</div></div></div>
+        <div class=flow-band-label>Flux d'exécution — expérience utilisateur</div>
+        <div class=flow-row><div class='node endpoint'>Prompt</div><span class=arrow>→</span><div class='node flux'><div class=nk>INTERACTION</div><div class=nt>Interaction &amp; prompting</div><div class=nr>Comment l&#x27;utilisateur formule et pilote la requête.</div></div><span class=arrow>→</span><div class='node flux on'><span class=non>ACTIF</span><div class=nk>AUGMENTATION</div><div class=nt>Augmentation &amp; RAG</div><div class=nr>Injecter de la connaissance externe fraîche dans le contexte.</div></div><span class=arrow>→</span><div class='node model'><div class=nk>LE MODÈLE</div><div class=nt>Modèle déployé</div><div class=nr>issu des deux briques amont</div></div><span class=arrow>→</span><div class='node flux on'><span class=non>ACTIF</span><div class=nk>RAISONNEMENT</div><div class=nt>Raisonnement &amp; test-time compute</div><div class=nr>Allouer plus de calcul au moment de générer pour mieux raisonner.</div></div><span class=arrow>→</span><div class='node flux'><div class=nk>INFÉRENCE</div><div class=nt>Inférence &amp; efficience</div><div class=nr>Servir le modèle : vitesse, coût, mémoire à la génération.</div></div><span class=arrow>→</span><div class='node endpoint'>Résultat</div></div>
+        <div class=flow-band-label>Contrôle &amp; orchestration — transverse au flux</div>
+        <div class='control-band on'><span class=non>ACTIF</span><div class=nk>CONTRÔLE — INTERVIENT AU PROMPT ET AU RÉSULTAT</div><div class=nt>Outils &amp; orchestration agentique</div><div class=nr>Enveloppe le flux : construit/réécrit le prompt, appelle des outils, boucle, puis formate le résultat.</div></div>
+        <div class=flow-band-label>Axes-propriétés transverses</div>
+        <div class=transverse-band><div class=trow><div class=tcell><b>Évaluation &amp; benchmarks</b><br>Mesurer les capacités et détecter la contamination.</div><div class=tcell><b>Multimodalité</b><br>Texte, image, audio, vidéo dans un même modèle.</div><div class=tcell><b>Sécurité &amp; red-teaming</b><br>Robustesse, jailbreaks, garde-fous, alignement en usage.</div></div></div>
+      </div>
+      <div class=part>
+        <div class=part-head><h2>Trajectoire par brique</h2><span class=sub>d'où l'on vient → état actuel</span></div>
+        <div class=traj><div class=traj-item><div class=traj-h><span class=tl>Architecture &amp; pré-entraînement</span><span class=grp>Amont</span></div><div class=traj-xy><span class=x>Transformer dense</span> → <span class=to>MoE sparse, attention GQA, contexte long, non-Transformer (Mamba)</span></div><div class=traj-sub><span class=chip>Attention (MHA→MQA→GQA)</span><span class=chip>Mixture-of-Experts</span><span class=chip>Contexte long</span><span class=chip>Espaces d&#x27;états (SSM)</span></div><div class=traj-anchor>Zhao et al., arXiv:2303.18223 · lois d&#x27;échelle Chinchilla arXiv:2203.15556</div></div><div class=traj-item><div class=traj-h><span class=tl>Post-entraînement &amp; alignement</span><span class=grp>Amont</span></div><div class=traj-xy><span class=x>SFT / instruction tuning</span> → <span class=to>RLHF puis DPO / optimisation de préférences</span></div><div class=traj-sub><span class=chip>Instruction tuning</span><span class=chip>RLHF</span><span class=chip>DPO / preference optimization</span></div><div class=traj-anchor>Instruction Tuning: A Survey, arXiv:2308.10792</div></div><div class=traj-item><div class=traj-h><span class=tl>Interaction &amp; prompting</span><span class=grp>Flux</span></div><div class=traj-xy><span class=x>zero / few-shot</span> → <span class=to>CoT, self-consistency, prompting structuré</span></div><div class=traj-sub><span class=chip>Few-shot</span><span class=chip>Chain-of-Thought</span><span class=chip>Self-consistency</span><span class=chip>Prompting structuré</span></div><div class=traj-anchor>The Prompt Report, Schulhoff et al., arXiv:2406.06608</div></div><div class=traj-item><div class=traj-h><span class=tl>Augmentation &amp; RAG</span><span class=grp>Flux</span></div><div class=traj-xy><span class=x>Naive RAG</span> → <span class=to>Advanced RAG puis Modular RAG</span></div><div class=traj-sub><span class=chip>Naive RAG</span><span class=chip>Advanced RAG</span><span class=chip>Modular RAG</span></div><div class=traj-anchor>Gao et al., arXiv:2312.10997</div></div><div class=traj-item><div class=traj-h><span class=tl>Outils &amp; orchestration agentique</span><span class=grp>Contrôle</span></div><div class=traj-xy><span class=x>usage d&#x27;outils ponctuel (ReAct, Toolformer)</span> → <span class=to>agent autonome puis multi-agents (Agentic AI)</span></div><div class=traj-sub><span class=chip>Tool use</span><span class=chip>Agent autonome</span><span class=chip>Multi-agents</span><span class=chip>Mémoire / planification</span></div><div class=traj-anchor>Wang et al. arXiv:2308.11432 · Xi et al. arXiv:2309.07864 · Agent AI arXiv:2401.03568</div></div><div class=traj-item><div class=traj-h><span class=tl>Raisonnement &amp; test-time compute</span><span class=grp>Flux</span></div><div class=traj-xy><span class=x>CoT comme technique de prompt</span> → <span class=to>modèles de raisonnement entraînés (style o1), budget à l&#x27;inférence</span></div><div class=traj-sub><span class=chip>Chain-of-Thought</span><span class=chip>Reasoning models (o1-like)</span><span class=chip>Inference-time scaling</span></div><div class=traj-anchor>Towards Reasoning in LLMs: A Survey, arXiv:2212.10403</div></div><div class=traj-item><div class=traj-h><span class=tl>Inférence &amp; efficience</span><span class=grp>Flux</span></div><div class=traj-xy><span class=x>FP16 dense</span> → <span class=to>quantization INT4, PagedAttention/vLLM, speculative decoding</span></div><div class=traj-sub><span class=chip>Quantization</span><span class=chip>KV-cache / PagedAttention</span><span class=chip>Speculative decoding</span><span class=chip>FlashAttention</span></div><div class=traj-anchor>Efficient LLMs: A Survey arXiv:2312.03863 · Model Compression arXiv:2308.07633</div></div></div>
+      </div>
+      <div class=foot>Chaque nouveauté du compte-rendu est rattachée à l'une de ces briques.
+        Trajectoires et sous-briques éditables dans referential.py.</div>
+    </section></div><script>
+(function(){
+  function show(name){
+    document.querySelectorAll('.view').forEach(function(v){v.classList.toggle('active',v.id===name);});
+    document.querySelectorAll('.tab').forEach(function(t){t.classList.toggle('active',t.dataset.view===name);});
+    try{ history.replaceState(null,'',name==='etat'?'#etat':'#cr'); }catch(e){/* origine sandboxée : on ignore */}
+  }
+  document.querySelectorAll('.tab').forEach(function(t){
+    t.addEventListener('click',function(){show(t.dataset.view);});
+  });
+  var h;
+  try{ h=(location.hash||'').slice(1); }catch(e){ h=''; }
+  if(!h||!document.getElementById(h)) h='cr';
+  show(h);
+})();
+</script></body></html>

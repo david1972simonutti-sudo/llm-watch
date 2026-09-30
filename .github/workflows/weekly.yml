@@ -1,0 +1,80 @@
+name: LLM Market Watch — hebdo
+
+# Déclencheurs : lundi matin (cron) + bouton manuel "Run workflow".
+on:
+  schedule:
+    # 06:00 UTC lundi = 08:00 Paris en été (CEST) / 07:00 en hiver (CET).
+    # GitHub peut décaler un cron de quelques minutes : c'est "lundi matin", pas 8:00 pile.
+    # Pour viser 08:00 pile toute l'année, voir la note DST du SETUP-GITHUB.md.
+    - cron: '0 6 * * 1'
+  workflow_dispatch: {}   # permet de lancer à la demande depuis l'onglet Actions
+
+# Le job a besoin d'écrire (recommit du ledger) et de publier sur Pages.
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: llm-watch
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      TZ: Europe/Paris
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+      SMTP_HOST: ${{ secrets.SMTP_HOST }}
+      SMTP_PORT: ${{ secrets.SMTP_PORT }}
+      SMTP_USER: ${{ secrets.SMTP_USER }}
+      SMTP_PASS: ${{ secrets.SMTP_PASS }}
+      MAIL_FROM: ${{ secrets.MAIL_FROM }}
+      MAIL_TO: ${{ secrets.MAIL_TO }}
+      # URL publique du rapport (Pages) : renseigne la variable REPORT_URL après le 1er déploiement
+      # pour que les liens de l'email pointent vers la page en ligne au lieu d'un fichier local.
+      REPORT_URL: ${{ vars.REPORT_URL }}
+    steps:
+      - name: Récupérer le dépôt
+        uses: actions/checkout@v4
+
+      - name: Installer Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Installer les dépendances
+        run: pip install -r requirements.txt
+
+      - name: Générer le rapport
+        run: python collect.py
+
+      - name: Recommiter le ledger et les archives (mémoire anti-répétition)
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add state/ledger.json output/latest.html output/archive/ output/report-*.json 2>/dev/null || true
+          git commit -m "Veille LLM — run $(date +%F)" || echo "Rien de nouveau à committer"
+          git push
+
+      - name: Préparer la page (index.html = dernier rapport)
+        run: cp output/latest.html output/index.html
+
+      - name: Empaqueter pour Pages
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: output
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Déployer sur GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
