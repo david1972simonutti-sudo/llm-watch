@@ -1,0 +1,14 @@
+{
+  "week_id": "2026-W43",
+  "week_label": "Semaine 43 · 19 Oct–25 Oct 2026",
+  "doc_title": "LLM analyse du 19/10/2026",
+  "generated": "2026-10-19",
+  "roster": "OpenAI / GPT, Anthropic / Claude, Google / Gemini, Meta / Llama, Mistral AI, xAI / Grok, Microsoft Copilot, DeepSeek, Qwen / Alibaba, Cohere, LightOn",
+  "verdict": "Semaine calme : aucun mouvement majeur, les choix de LLM restent inchangés.",
+  "active_bricks": [],
+  "cr": {
+    "majeures": [],
+    "radar": [],
+    "entrants": []
+  }
+}
